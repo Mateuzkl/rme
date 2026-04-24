@@ -33,11 +33,52 @@ If you are looking for the 3.X version, download it [here](https://github.com/hj
 
 Compiling
 =========
+
+## Windows
+
+Before building RME on Windows, you must install and configure vcpkg first.
+
+### Why this is required:
+
+This project now uses a `vcpkg.json` manifest file. That file declares the external libraries the project depends on. When Visual Studio detects the vcpkg manifest integration, it can automatically resolve, download, and install any missing dependencies required by the solution.
+
+In other words:
+- `vcpkg.json` tells the project which packages are required
+- vcpkg manages those packages for you
+- if a dependency is missing, vcpkg can fetch and install it automatically
+- this avoids manual library setup and keeps the build environment consistent
+
+### Setup steps on Windows:
+
+```bash
+git clone https://github.com/microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg.exe integrate install
+```
+
+**Important:**
+You must run each command exactly as shown. The `integrate install` step is required so Visual Studio can detect vcpkg automatically when opening the solution.
+
+### After that:
+
+Open `\rme\vcproj\RME.sln` in Visual Studio 2022, then click Build Solution and wait until the compilation finishes successfully.
+
+**Requirement:**
+Visual Studio 2022 is required to build the project.
+
+---
+
+## Other Platforms
+
 Required libraries:
 * wxWidgets >= 3.0
-* Boost >= 1.55.0
-
-[Compile on Windows](https://github.com/hjnilsson/rme/wiki/Compiling-on-Windows)
+* Boost >= 1.66.0
+* fmt
+* nlohmann-json
+* OpenGL
+* FreeGLUT
+* zlib
 
 [Compile on Ubuntu](https://github.com/hjnilsson/rme/wiki/Compiling-on-Ubuntu)
 

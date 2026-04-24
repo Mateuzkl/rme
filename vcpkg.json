@@ -1,0 +1,17 @@
+{
+  "name": "rme",
+  "version-string": "3.0.0",
+  "description": "Remere's Map Editor - A map editor for OpenTibia",
+  "dependencies": [
+    "boost-date-time",
+    "boost-system",
+    "boost-filesystem",
+    "boost-iostreams",
+    "fmt",
+    "nlohmann-json",
+    "wxwidgets",
+    "opengl",
+    "freeglut",
+    "zlib"
+  ]
+}
